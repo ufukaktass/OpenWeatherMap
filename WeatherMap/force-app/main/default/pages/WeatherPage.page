@@ -1,0 +1,36 @@
+<apex:page standardController="Account" extensions="WeatherCalloutController" title="Weather Condition">
+    <apex:form>
+        <apex:pageBlock>
+            <apex:pageBlockSection>
+                <apex:repeat value="{!weatherWrapper}" var="wrap">
+                        <tr>
+                            <td>
+                                Weather in {!wrap.name}                     
+                            </td>
+                        </tr>
+                    </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:pageBlockSection>
+                    <apex:repeat value="{!weatherWrapper}" var="wrap">
+                        <tr>
+                            <td>
+                                Description:    {!wrap.weather[0].description}                       
+                            </td>
+                        </tr>
+                        <apex:image url="{!iconUrl}"/>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection>
+                    <apex:repeat value="{!weatherWrapper}" var="wrap">
+                        <tr>
+                            <td>
+                               Temperature {!wrap.main.temp}                    
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
